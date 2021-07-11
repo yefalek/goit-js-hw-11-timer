@@ -16,27 +16,16 @@ class CountdownTimer {
 
   updateClockface(time) {
     const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
-    const hours = this.pad(
-      Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    );
+    const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),);
     const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
     const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
 
-    document.querySelector(
-      this.selector,
-    ).children[0].children[0].textContent = `${days}`;
+    const domSelector = document.querySelector(this.selector,);
 
-    document.querySelector(
-      this.selector,
-    ).children[1].children[0].textContent = `${hours}`;
-
-    document.querySelector(
-      this.selector,
-    ).children[2].children[0].textContent = `${mins}`;
-
-    document.querySelector(
-      this.selector,
-    ).children[3].children[0].textContent = `${secs}`;
+    domSelector.children[0].children[0].textContent = `${days}`;
+    domSelector.children[1].children[0].textContent = `${hours}`;
+    domSelector.children[2].children[0].textContent = `${mins}`;
+    domSelector.children[3].children[0].textContent = `${secs}`;
   }
 
   pad(value) {
